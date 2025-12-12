@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古代诗词赏析</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>古代诗词赏析</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="搜索诗词或作者...">
+            <button id="searchBtn">搜索</button>
+        </div>
+    </header>
+    <div class="container">
+        <!-- 左侧一级导航栏 -->
+        <nav class="sidebar">
+            <h2>诗词分类</h2>
+            <ul class="nav-tabs">
+                <li class="tab" data-type="tang">唐诗</li>
+                <li class="tab" data-type="song">宋词</li>
+            </ul>
+        </nav>
+
+        <!-- 中间二级菜单 -->
+        <aside id="secondaryNav" class="secondary-nav hidden">
+            <h3 id="secondaryNavTitle">诗歌列表</h3>
+            <ul id="secondaryNavList" class="secondary-nav-list"></ul>
+        </aside>
+
+        <!-- 右侧内容区 -->
+        <main class="content">
+            <!-- 诗歌详情区域 -->
+            <div id="poemDetail" class="poem-detail">
+                <div class="poem-container">
+                    <!-- 视频播放区域 (2/3宽度) -->
+                    <div class="video-section">
+                        <video id="poemVideo" controls autoplay muted loop>
+                            <source src="your-video-file.mp4" type="video/mp4">
+                            您的浏览器不支持 HTML5 视频播放。
+                        </video>
+                    </div>
+                    <!-- 诗词内容区域 (1/3宽度) -->
+                    <div class="poem-content-section">
+                        <h2 id="detailTitle">请选择一首诗歌</h2>
+                        <p id="detailAuthor"></p>
+                        <div id="detailContent">
+                            <p>在左侧选择一个诗词分类，然后点击具体的诗歌查看详情。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 搜索结果区域 -->
+            <div id="searchResults" class="search-results hidden">
+                <h2>搜索结果</h2>
+                <div id="resultsList"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 登录状态检查 -->
+    <script>
+        // 检查用户是否已登录
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // 页面加载时检查登录状态
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+    </script>
+    
+    <!-- 引用JavaScript文件 -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

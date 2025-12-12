@@ -1,0 +1,403 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kaiti', 'STKaiti', 'SimKai', 'Songti SC', 'Microsoft YaHei', serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding-top: 60px; /* 为固定头部留出空间 */
+    height: 100vh; /* 整个页面高度固定 */
+    overflow: hidden; /* 防止页面整体滚动 */
+}
+
+/* 头部样式 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #5D4037; /* 深栗色背景 */
+    color: #f5f5f5;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-bottom: 2px solid #D4AF37; /* 金色边框 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    padding: 8px 12px;
+    border: 1px solid #8D6E63;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 300px;
+    background-color: #FAF9F6; /* 宣纸色 */
+    font-family: inherit;
+}
+
+.search-box button {
+    padding: 8px 20px;
+    background-color: #C62828; /* 朱红色 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.search-box button:hover {
+    background-color: #B71C1C;
+}
+
+/* 主容器 */
+.container {
+    display: flex;
+    height: calc(100vh - 60px); /* 整个页面高度固定，减去头部高度 */
+    background-color: rgba(255, 255, 255, 0.8); /* 添加半透明背景 */
+}
+
+/* 侧边栏导航 */
+.sidebar {
+    width: 140px;
+    background-color: #3E2723; /* 深褐色 */
+    color: #D7CCC8;
+    padding: 20px 10px;
+    height: 100%; /* 固定高度 */
+    overflow-y: auto; /* 内容可滚动 */
+    border-right: 1px solid #5D4037;
+}
+
+/* 中间二级菜单 */
+.secondary-nav {
+    width: 220px;
+    background-color: #FAF9F6; /* 宣纸色 */
+    border-right: 1px solid #D7CCC8;
+    padding: 20px;
+    height: 100%; /* 固定高度 */
+    overflow-y: auto; /* 内容可滚动 */
+    background-image: linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 20px 100%; /* 竖线纹理 */
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #8D6E63;
+    text-align: center;
+    color: #D4AF37; /* 金色标题 */
+}
+
+.nav-tabs {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 15px 10px;
+    margin-bottom: 12px;
+    background-color: transparent;
+    border: 1px solid #8D6E63;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    font-size: 18px;
+    color: #D7CCC8;
+}
+
+.tab:hover {
+    background-color: #4E342E;
+    color: #fff;
+    border-color: #D4AF37;
+}
+
+.tab.active {
+    background-color: #8D6E63;
+    color: #fff;
+    border-color: #D4AF37;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+/* 二级导航列表样式 */
+.secondary-nav h3 {
+    font-size: 18px;
+    color: #5D4037;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #D7CCC8;
+    padding-bottom: 10px;
+}
+
+.secondary-nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.secondary-nav-item {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px dashed #D7CCC8;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+    color: #5D4037;
+}
+
+.secondary-nav-item:hover {
+    background-color: rgba(93, 64, 55, 0.05);
+    color: #C62828;
+    padding-left: 20px; /* 悬停右移效果 */
+}
+
+/* 内容区域 */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-image: url('kling_20251210_图生图_请帮我参考此图片_帮_3179_0.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%; /* 固定高度 */
+    overflow-y: auto; /* 内容可滚动 */
+    position: relative;
+}
+
+/* 添加半透明覆盖层以提高文字可读性 */
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* 80%透明度的白色覆盖层 */
+    z-index: 0;
+}
+
+/* 确保内容显示在覆盖层之上 */
+.content * {
+    position: relative;
+    z-index: 1;
+}
+
+/* 诗歌列表样式 */
+.poem-list h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.poem-item {
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.poem-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.poem-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.poem-author {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* 诗歌详情页样式 */
+.poem-detail {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.6); /* 60%透明度的白色背景，增加层次感 */
+}
+
+/* 诗歌容器 - 视频在上，诗词在下布局 */
+.poem-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+/* 视频区域 */
+.video-section {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 覆盖整个区域，保持比例 */
+}
+
+/* 诗词内容区域 */
+.poem-content-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.back-btn {
+    background-color: #ecf0f1;
+    color: #34495e;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #bdc3c7;
+}
+
+#detailTitle {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#detailAuthor {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#detailContent {
+    font-size: 18px;
+    line-height: 2.2;
+    text-align: center;
+    white-space: pre-line;
+    color: #2c3e50;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 搜索结果样式 */
+.search-results {
+    margin-top: 20px;
+}
+
+.search-results h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+}
+
+.result-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.result-item:hover {
+    background-color: #f5f5f5;
+}
+
+.result-item h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.result-item p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* 隐藏类 */
+.hidden {
+    display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    /* 侧边栏和内容区域布局调整 */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        margin-top: 70px;
+    }
+    
+    .main-container {
+        flex-direction: column;
+        margin-top: 0;
+    }
+    
+    .content {
+        margin-left: 0;
+        margin-top: 0;
+    }
+    
+    .search-container {
+        flex-direction: column;
+    }
+    
+    /* 诗歌详情页面响应式调整 - 垂直布局 */
+    .poem-container {
+        flex-direction: column;
+    }
+    
+    .video-section,
+    .poem-content-section {
+        width: 100%;
+    }
+    
+    /* 小屏幕上视频高度调整 */
+    .video-section {
+        height: 300px;
+    }
+}
