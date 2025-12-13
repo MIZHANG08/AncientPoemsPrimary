@@ -179,7 +179,7 @@ body {
 .content {
     flex: 1;
     padding: 20px;
-    background-image: url('compressed_image.jpg');
+    background-image: url('https://cdn.jsdelivr.net/gh/MIZHANG08/photostore@master/photo/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
