@@ -12,6 +12,7 @@
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="搜索诗词或作者...">
             <button id="searchBtn">搜索</button>
+            <button id="logoutBtn">退出登录</button>
         </div>
     </header>
     <div class="container">
@@ -71,8 +72,22 @@
             }
         }
         
-        // 页面加载时检查登录状态
-        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+        // 退出登录功能
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        }
+        
+        // 页面加载时检查登录状态并添加事件监听器
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+            
+            // 为退出登录按钮添加点击事件
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', logout);
+            }
+        });
     </script>
     
     <!-- 引用JavaScript文件 -->
